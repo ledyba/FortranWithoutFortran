@@ -1,0 +1,18 @@
+OUTPUT_FORMAT("elf64-x86-64", "elf64-x86-64","elf64-x86-64")
+OUTPUT_ARCH(i386:x86-64)
+
+ENTRY(ep);
+MEMORY
+{
+ROM(rxai) : ORIGIN = 0, LENGTH = 64k
+}
+SECTIONS
+{
+.text : {} > ROM
+.rodata : {} > ROM
+.data : {} > ROM
+. = ALIGN(4);
+__bss_start = .
+; .bss : {} > ROM
+__bss_end = . ;
+}
