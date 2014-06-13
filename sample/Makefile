@@ -9,7 +9,7 @@ shared:
 
 linkerscript:
 	gcc -c -o test.o test.c -fPIC 
-	ld -o test-shared-with-linkerscript test.o --script ./linker.script
+	ld -o test-with-linkerscript test.o --script ./linker.script
 
 pie:
 	gcc -c -o test.o test.c -pie
