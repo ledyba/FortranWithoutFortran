@@ -11,7 +11,7 @@ lines = lines.flat_map {|x| x.split(";").map{|s| s.strip}.reject{|item| item.sta
 cnt = 0;
 for s in lines do
 	cnt = cnt + s.size
-	if cnt > 100 then
+	if cnt >= 100 then
 		puts ""
 		cnt = 0;
 	end
