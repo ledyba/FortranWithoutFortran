@@ -1,8 +1,8 @@
 .PHONY: all test format clean 
 
 all:
-	gcc -fPIC -c -o calc.o calc.c -std=gnu99 -pie
-	ld -o calc.so calc.o -z execstack -pie --script ./linker.script
+	gcc -fPIC -c -o calc.o calc.c -std=gnu99 -pie -fno-stack-protector
+	ld -o calc.so calc.o -z execstack -pie --script ./linker.script -fno-stack-protector
 	bash generate.sh
 	cpp -o out.f95 template.f95
 	gfortran -o prog.s out.f95 -S -masm=intel -fno-range-check
